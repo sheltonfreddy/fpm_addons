@@ -7,10 +7,12 @@
     'category': 'Sales',
     'sequence': 15,
     'summary': 'Sales Line Weight',
+    #'website': 'https://www.odoo.com/page/sales',
     'depends': ['sale'],
     'data': [
         'views/sale_view.xml',
+        #'views/sale_management_templates.xml',
     ],
     'installable': True,
-    'auto_install': False,
+    'auto_install': False
 }

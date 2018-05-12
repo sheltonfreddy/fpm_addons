@@ -21,3 +21,12 @@ class SaleOrderLine(models.Model):
             if weight > 0:
                 self.product_uom_qty = weight
 
+    @api.multi
+    def _prepare_invoice_line(self, qty):
+        self.ensure_one()
+        res = super(SaleOrderLine,self)._prepare_invoice_line(qty)
+        if self.weights:
+            res['weights'] = self.weights
+            res['total_weight'] = self.total_weight
+        return res
+
