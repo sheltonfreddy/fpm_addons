@@ -2,11 +2,11 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'FPM Sales Reports',
+    'name': 'FPM Sales Customisations',
     'version': '1.0',
     'category': 'Sales',
     'sequence': 15,
-    'summary': 'FPM Sales Reports',
+    'summary': 'FPM Sales Customisations',
     'depends': ['sale'],
     'data': [
         'report/sale_report_templates.xml',
