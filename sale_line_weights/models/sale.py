@@ -9,6 +9,7 @@ class SaleOrderLine(models.Model):
 
     weights = fields.Text('Weights')
     total_weight = fields.Float('Total Weight')
+    packs = fields.Integer('# Packs')
 
     @api.onchange('weights')
     def onchange_weights(self):
@@ -20,6 +21,7 @@ class SaleOrderLine(models.Model):
             self.total_weight = weight
             if weight > 0:
                 self.product_uom_qty = weight
+                self.packs = len(weight_list)
 
     @api.multi
     def _prepare_invoice_line(self, qty):
@@ -28,5 +30,6 @@ class SaleOrderLine(models.Model):
         if self.weights:
             res['weights'] = self.weights
             res['total_weight'] = self.total_weight
+            res['packs'] = self.packs
         return res
 
