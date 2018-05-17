@@ -9,6 +9,7 @@ class AccountInvoiceLine(models.Model):
 
     weights = fields.Text('Weights')
     total_weight = fields.Float('Total Weight')
+    packs = fields.Integer('# Packs')
 
     @api.onchange('weights')
     def onchange_weights(self):
@@ -20,4 +21,4 @@ class AccountInvoiceLine(models.Model):
             self.total_weight = weight
             if weight > 0:
                 self.quantity = weight
-
+                self.packs = len(weight_list)
