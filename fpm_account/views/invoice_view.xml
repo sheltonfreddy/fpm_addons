@@ -6,6 +6,9 @@
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account.invoice_form"/>
             <field name="arch" type="xml">
+                <xpath expr = "//button[@name='invoice_print']" position="replace">
+                    <button name="invoice_print_without_pay" string="Print Invoice" type="object" attrs="{'invisible':[('state', 'not in', ('open','paid'))]}" groups="base.group_user"/>
+                </xpath>
                 <xpath expr="//field[@name='invoice_line_ids']//tree//field[@name='invoice_line_tax_ids']" position="attributes">
                      <attribute name="invisible">1</attribute>
                 </xpath>
