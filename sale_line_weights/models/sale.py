@@ -30,6 +30,6 @@ class SaleOrderLine(models.Model):
         if self.weights:
             res['weights'] = self.weights
             res['total_weight'] = self.total_weight
-            res['packs'] = self.packs
+        res['packs'] = self.packs
         return res
 
