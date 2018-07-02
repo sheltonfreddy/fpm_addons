@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='pricelist_id']" position="after">
                     <field name="user_id"/>
+                    <!--field name="_barcode_scanned" widget="sale_barcode_handler"/-->
                 </xpath>
                 <xpath expr="//group[@name='sales_person']//field[@name='user_id']" position="replace"/>
                 <xpath expr="//field[@name='order_line']//tree//field[@name='price_unit']" position="before">
@@ -32,6 +33,18 @@
                     <field name="amount_total" widget='monetary' options="{'currency_field': 'currency_id'}"/>
                 </xpath>
 
+            </field>
+        </record>
+
+        <record id="view_sale_order_barcode_inherit_form" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form position="inside">
+                    <field name="_barcode_scanned" widget="barcode_handler"/>
+                </form>
             </field>
         </record>
     </data>

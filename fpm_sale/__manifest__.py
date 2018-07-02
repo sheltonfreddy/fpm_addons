@@ -7,14 +7,12 @@
     'category': 'Sales',
     'sequence': 15,
     'summary': 'FPM Sales Customisations',
-    'depends': ['sale'],
+    'depends': ['sale','barcodes'],
     'data': [
 
         'report/sale_report_templates.xml',
         'report/sale_report.xml',
-        'views/sale_view.xml'
-        
-
+        'views/sale_view.xml',
 
     ],
     'installable': True,
